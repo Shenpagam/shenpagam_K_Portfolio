@@ -1,2 +1,2 @@
 # shenpagam_K_Portfolio
-Modern, responsive developer portfolio built with Next.js, showcasing my skills, projects, experience, and technical journey.
+Modern personal portfolio web application showcasing Full-Stack Development, WordPress Development, SEO expertise, professional projects, and digital solutions.
