@@ -1,0 +1,502 @@
+/* ==========================================================================
+   Navigation Header Styles (Vanilla CSS Module)
+   ========================================================================== */
+
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: all var(--transition-smooth);
+}
+
+.headerInner {
+  position: relative;
+  background-color: var(--color-nav-bg-initial);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--transition-smooth),
+              box-shadow var(--transition-smooth),
+              border-color var(--transition-smooth),
+              height var(--transition-smooth);
+}
+
+/* Scrolled Sticky State */
+.headerInner.isScrolled {
+  background-color: var(--color-nav-bg-scrolled);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-nav-scrolled);
+}
+
+/* Main Container Layout */
+.container {
+  max-width: var(--max-width-nav);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: height var(--transition-smooth);
+}
+
+.headerInner.isScrolled .container {
+  height: var(--header-height-scrolled);
+}
+
+/* ==========================================================================
+   Left Side: Brand & Logo
+   ========================================================================== */
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  text-decoration: none;
+  group-focus: outline;
+}
+
+.brandMonogram {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary-navy) 0%, var(--color-navy-darker) 100%);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  box-shadow: 0 2px 8px rgba(37, 52, 82, 0.12);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.brandMonogram::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.brandLink:hover .brandMonogram {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 93, 207, 0.2);
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandNameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.brandName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-navy);
+  transition: color var(--transition-fast);
+}
+
+.brandSpecialty {
+  font-family: var(--font-ibarra-real-nova), serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-primary-blue);
+}
+
+.brandStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-primary-green);
+  box-shadow: 0 0 0 2px rgba(45, 222, 152, 0.25);
+  animation: pulse 2.4s infinite ease-in-out;
+}
+
+.statusLabel {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: var(--color-secondary-gray);
+  letter-spacing: 0.01em;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(45, 222, 152, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(45, 222, 152, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 222, 152, 0);
+  }
+}
+
+/* ==========================================================================
+   Center: Desktop Navigation Links
+   ========================================================================== */
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.3rem 0.4rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.headerInner.isScrolled .navList {
+  background-color: rgba(239, 246, 254, 0.65);
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.05rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--color-primary-navy);
+  border-radius: var(--radius-full);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-primary-blue);
+  background-color: rgba(34, 93, 207, 0.06);
+}
+
+.navLink.isActive {
+  color: var(--color-primary-blue);
+  font-weight: 600;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(37, 52, 82, 0.06);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--color-primary-blue);
+}
+
+/* ==========================================================================
+   Right Side: Primary CTA
+   ========================================================================== */
+
+.ctaArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.68rem 1.35rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  background: var(--color-primary-navy);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(37, 52, 82, 0.12);
+  transition: background-color var(--transition-smooth),
+              transform var(--transition-smooth),
+              box-shadow var(--transition-smooth);
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-primary-blue);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(34, 93, 207, 0.28);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+.ctaArrow {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--transition-smooth);
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translate(3px, -2px);
+}
+
+/* ==========================================================================
+   Mobile Menu Toggle Button
+   ========================================================================== */
+
+.mobileToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-primary-navy);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.mobileToggle:hover {
+  background-color: var(--color-light-bg-blue);
+  border-color: var(--color-border-hover);
+}
+
+.hamburgerIcon {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-navy);
+  border-radius: 2px;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+  transform-origin: center;
+}
+
+.mobileToggle.isOpen .hamburgerLine:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobileToggle.isOpen .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobileToggle.isOpen .hamburgerLine:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   Mobile Drawer & Backdrop
+   ========================================================================== */
+
+.mobileBackdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(37, 52, 82, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+.mobileBackdrop.isOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobilePanel {
+  display: none;
+  position: fixed;
+  top: calc(var(--header-height) - 4px);
+  left: 1rem;
+  right: 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-dropdown);
+  z-index: 999;
+  padding: 1.25rem;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  pointer-events: none;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.mobilePanel.isOpen {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-primary-navy);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.mobileNavLink:hover {
+  background-color: var(--color-light-bg-blue);
+  color: var(--color-primary-blue);
+}
+
+.mobileNavLink.isActive {
+  background-color: var(--color-light-bg-blue);
+  color: var(--color-primary-blue);
+  font-weight: 600;
+}
+
+.mobileActiveBadge {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-blue);
+  color: var(--color-white);
+}
+
+.mobileDivider {
+  height: 1px;
+  background-color: var(--color-border-subtle);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.mobileCtaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobileCtaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-primary-navy);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.mobileCtaButton:hover {
+  background-color: var(--color-primary-blue);
+}
+
+.mobileStatusFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--color-secondary-gray);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .ctaArea {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+
+  .mobileBackdrop {
+    display: block;
+  }
+
+  .mobilePanel {
+    display: block;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandSpecialty {
+    display: none;
+  }
+}
