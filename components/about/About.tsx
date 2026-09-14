@@ -53,7 +53,7 @@ export const About: React.FC = () => {
               <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-md flex items-center justify-between">
                 <div>
                   <div className="font-bold text-sm text-brand-navy">Shenpagam K</div>
-                  <div className="text-[11px] text-brand-gray font-medium">Full-Stack Web Developer</div>
+                  <div className="text-[11px] text-brand-gray font-medium">Software Developer</div>
                 </div>
                 <div className="w-8 h-8 rounded-xl bg-brand-navy text-white flex items-center justify-center font-bold text-xs">
                   SK
@@ -75,22 +75,22 @@ export const About: React.FC = () => {
         >
           <div className="space-y-4 text-base sm:text-lg text-brand-navy/85 leading-relaxed font-normal">
             <p>
-              I&apos;m Shenpagam K, a MCA graduate and Full-Stack Web Developer with a strong foundation in the MERN Stack, modern web development, WordPress, and SEO.
+              I’m a Software Developer with hands-on experience contributing to real-world web applications, digital platforms, AI-powered solutions, and WordPress websites. I enjoy turning ideas and requirements into practical, responsive, and user-friendly digital experiences.
             </p>
             <p>
-              My development journey is built around MongoDB, Express.js, React, and Node.js, through which I have developed practical web applications ranging from restaurant billing systems and task management platforms to API-driven applications. My technical foundation was further strengthened through a MERN Stack Development internship, where I contributed to full-stack features in a live development environment.
+              Currently, I’m working as a Software Developer Intern at AAA Techno Park, Sivakasi, where I contribute to live projects across frontend and backend development, WordPress, SEO, analytics, AI chatbots, and RAG-related solutions.
             </p>
             <p>
-              Alongside MERN Stack development, I work with Next.js, Tailwind CSS, and modern component-based development to create responsive and user-focused web experiences. I also have experience in WordPress development, including website structure, page development, customization, and content management.
+              My internship experience includes contributing to marketing websites such as Medronix and Vaidhya AI using WordPress, Elementor, Elementor Pro, Rank Math SEO, Yoast SEO, Contact Form 7, and WP Mail SMTP. I have also contributed to Vaidhya’s Health Camp Management platform, including frontend development for an Indian Map-based analytics module and improvements related to AI chatbot usability and response accuracy.
             </p>
             <p>
-              Additionally, I apply on-page SEO and technical SEO principles, including meta optimization, content structure, responsive design, and website performance considerations, helping create websites that are not only functional but also easier for search engines and users to discover.
+              I have also contributed to the Employee Productivity Dashboard (EPD), working across frontend and backend development for data-processing and related platform workflows. These experiences have helped me understand how software is developed, tested, improved, and delivered in a real project environment.
             </p>
             <p>
-              Beyond personal projects, I have contributed to professional workflow and application management systems, with experience in requirement analysis, application planning, and practical problem-solving.
+              Alongside my professional experience, I have a foundation in full-stack web development using JavaScript, React.js, Node.js, Express.js, MongoDB, REST APIs, Git, and GitHub, with growing experience in Next.js, WordPress, SEO, AI chatbots, and RAG-related technologies.
             </p>
             <p>
-              I am currently seeking opportunities as a Full-Stack Developer or Web Developer, where I can contribute my technical skills, continue learning, and build modern, scalable digital solutions.
+              I’m interested in building useful software, learning modern technologies, solving practical problems, and continuously improving as a developer.
             </p>
           </div>
 
@@ -98,30 +98,30 @@ export const About: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-brand-navy/10">
             {/* Fact 1 */}
             <div className="p-4 rounded-2xl bg-white border border-brand-navy/[0.07] shadow-sm">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-brand-blue mb-1">Postgraduate</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-brand-blue mb-1">POSTGRADUATE</div>
               <div className="font-bold text-base text-brand-navy">Master of Computer Applications</div>
               <div className="text-xs text-brand-gray mt-0.5">Kalasalingam Academy · 2024–2026 · CGPA 8.93</div>
             </div>
 
             {/* Fact 2 */}
             <div className="p-4 rounded-2xl bg-white border border-brand-navy/[0.07] shadow-sm">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-brand-blue mb-1">Undergraduate</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-brand-blue mb-1">UNDERGRADUATE</div>
               <div className="font-bold text-base text-brand-navy">B.Com in Computer Applications</div>
               <div className="text-xs text-brand-gray mt-0.5">Kalasalingam Academy · 2021–2024 · CGPA 9.16</div>
             </div>
 
             {/* Fact 3 */}
             <div className="p-4 rounded-2xl bg-white border border-brand-navy/[0.07] shadow-sm">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 mb-1">Experience</div>
-              <div className="font-bold text-base text-brand-navy">MERN Developer Intern</div>
-              <div className="text-xs text-brand-gray mt-0.5">Live Stream Technologies · 3 Months Experience</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 mb-1">CURRENT EXPERIENCE</div>
+              <div className="font-bold text-base text-brand-navy">Software Developer Intern</div>
+              <div className="text-xs text-brand-gray mt-0.5">AAA Techno Park · May 2026–Present</div>
             </div>
 
             {/* Fact 4 */}
             <div className="p-4 rounded-2xl bg-white border border-brand-navy/[0.07] shadow-sm">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-purple-700 mb-1">Active Expansion</div>
-              <div className="font-bold text-base text-brand-navy">Next.js, WordPress &amp; SEO</div>
-              <div className="text-xs text-brand-gray mt-0.5">Modern web applications, CMS &amp; discoverability</div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-purple-700 mb-1">CURRENT FOCUS</div>
+              <div className="font-bold text-base text-brand-navy">AI, RAG, WordPress &amp; SEO</div>
+              <div className="text-xs text-brand-gray mt-0.5">Practical web, AI &amp; digital solutions</div>
             </div>
           </div>
 

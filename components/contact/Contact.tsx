@@ -141,7 +141,7 @@ export const Contact: React.FC = () => {
               Send a Direct Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} action="https://formspree.io/f/mgaegygv" method="POST" className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">

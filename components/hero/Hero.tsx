@@ -10,6 +10,7 @@ import {
   SeoIcon,
   ExpressIcon,
 } from "./TechIcons";
+import { Settings } from "lucide-react";
 
 export const Hero: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ export const Hero: React.FC = () => {
           aria-hidden="true"
         />
         <span className="text-xs font-semibold tracking-wider uppercase text-brand-navy">
-          Full-stack development, modern web & digital work
+          SOFTWARE DEVELOPMENT • AI • WEB • DIGITAL
         </span>
       </motion.div>
 
@@ -170,10 +171,9 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-sans font-extrabold text-4xl sm:text-5xl lg:text-[3.85rem] text-brand-navy tracking-tight leading-[1.12] mb-5"
           >
-            Full-stack web <br />
-             developer<br />
+            Software Developer<br />
                <span className="font-serif italic font-semibold text-brand-blue relative inline-block tracking-tight">
-              building modern, practical web experiences.
+             building practical digital solutions
               {/* Green Curved Brush Stroke SVG Underneath */}
               <svg
                 className="absolute -bottom-2.5 left-0 w-full h-3 overflow-visible pointer-events-none"
@@ -196,8 +196,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-sm sm:text-base text-brand-gray leading-relaxed max-w-lg mb-8 font-normal"
           >
-           I build full-stack web applications using the MERN stack, and work with modern tools like Next.js to create responsive, component-based interfaces. I'm also developing experience in WordPress and SEO, adding a practical, discoverability-focused layer to the websites I build.
-          </motion.p>
+I build practical web and digital solutions across full-stack development, AI-powered applications, WordPress, and SEO. My experience includes React.js, Node.js, Next.js, modern web development, AI chatbots and RAG-related solutions, with a focus on creating responsive, user-friendly experiences.          </motion.p>
 
           {/* Action Buttons */}
           <motion.div
