@@ -1,29 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { BRAND_DATA } from "@/data/portfolio";
 
 export const Contact: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Open default mail client with pre-filled details
-    const mailtoUrl = `mailto:${BRAND_DATA.email}?subject=${encodeURIComponent(
-      formData.subject || "Project Inquiry / Opportunity"
-    )}&body=${encodeURIComponent(
-      `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoUrl;
-    setFormSubmitted(true);
-  };
+  const [state, handleSubmit, reset] = useForm("mgaegygv");
 
   return (
     <section
@@ -141,85 +123,135 @@ export const Contact: React.FC = () => {
               Send a Direct Message
             </h3>
 
-            <form onSubmit={handleSubmit} action="https://formspree.io/f/mgaegygv" method="POST" className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {state.succeeded ? (
+              <div className="py-10 px-4 flex flex-col items-center justify-center text-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-sm">
+                  <svg className="w-8 h-8 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                    <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h4 className="text-2xl font-bold text-brand-navy">
+                  Message Sent Successfully!
+                </h4>
+                <p className="text-sm text-brand-gray max-w-md leading-relaxed">
+                  Thank you for reaching out. Your message has been sent directly to Shenpagam. I will review it and get back to you shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => reset()}
+                  className="mt-4 px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-blue text-white text-xs font-semibold shadow-sm transition-all"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
+                      Your Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Alex Morgan"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all"
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
+                      className="text-xs text-red-500 mt-1 font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
+                      Your Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="alex@example.com"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all"
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="text-xs text-red-500 mt-1 font-medium"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
-                    Your Name
+                  <label htmlFor="contact-subject" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
+                    Subject
                   </label>
                   <input
-                    id="contact-name"
+                    id="contact-subject"
                     type="text"
+                    name="subject"
                     required
-                    placeholder="Alex Morgan"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Full-Stack Opportunity / Web Project"
                     className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all"
+                  />
+                  <ValidationError
+                    prefix="Subject"
+                    field="subject"
+                    errors={state.errors}
+                    className="text-xs text-red-500 mt-1 font-medium"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
-                    Your Email
+                  <label htmlFor="contact-message" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
+                    Message
                   </label>
-                  <input
-                    id="contact-email"
-                    type="email"
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows={4}
                     required
-                    placeholder="alex@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all"
+                    placeholder="Tell me about your project, team, or opportunity..."
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all resize-none"
+                  />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                    className="text-xs text-red-500 mt-1 font-medium"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="contact-subject" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
-                  Subject
-                </label>
-                <input
-                  id="contact-subject"
-                  type="text"
-                  required
-                  placeholder="Full-Stack Opportunity / Web Project"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all"
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full py-3.5 px-6 rounded-xl bg-brand-navy hover:bg-brand-blue disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm shadow-md hover:shadow-blueGlow transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  <span>{state.submitting ? "Sending..." : "Send Message"}</span>
+                  {state.submitting ? (
+                    <svg className="animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 16 16">
+                      <path d="M4 12L12 4M12 4H6M12 4V10" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </button>
+
+                <ValidationError
+                  errors={state.errors}
+                  className="p-3 rounded-xl bg-red-50 text-red-700 text-xs font-medium border border-red-200 text-center"
                 />
-              </div>
-
-              <div>
-                <label htmlFor="contact-message" className="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-1.5">
-                  Message
-                </label>
-                <textarea
-                  id="contact-message"
-                  rows={4}
-                  required
-                  placeholder="Tell me about your project, team, or opportunity..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-brand-navy/15 text-brand-navy placeholder:text-brand-gray/60 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-brand-navy hover:bg-brand-blue text-white font-semibold text-sm shadow-md hover:shadow-blueGlow transition-all duration-200 flex items-center justify-center gap-2"
-              >
-                <span>Send Message</span>
-                <svg className="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 16 16">
-                  <path d="M4 12L12 4M12 4H6M12 4V10" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-
-              {formSubmitted && (
-                <div className="p-3 rounded-xl bg-emerald-50 text-emerald-800 text-xs font-medium text-center border border-emerald-200">
-                  Opening mail client with your message details...
-                </div>
-              )}
-            </form>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -228,3 +260,4 @@ export const Contact: React.FC = () => {
 };
 
 export default Contact;
+
