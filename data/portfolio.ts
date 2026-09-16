@@ -470,6 +470,40 @@ export const PROJECTS_DATA: ProjectItem[] = [
 
   // Featured Personal Projects
   {
+    id: "sentinel",
+    title: "Sentinel – File Hacking Alert System Using Fog Computing",
+    subtitle: "Cybersecurity & Secure File Management Platform",
+    category: "Featured",
+    badge: "Featured Personal Project",
+    description:
+      "A secure MERN-stack web application designed to protect digital files from unauthorized access and suspicious activities using secure authentication, secure code verification, trap-based intrusion detection, honeypot protection, activity monitoring, email alerts, and fog-computing concepts.",
+    problem:
+      "Detecting unauthorized access, suspicious login activity, and credential misuse before sensitive digital files are compromised without administrative visibility.",
+    solution:
+      "Architected a multi-layered web application security system combining JWT authentication, role-based access control, trap-based login detection, and honeypot decoy files to isolate intruders and alert administrators.",
+    keyFeatures: [
+      "Role-based access control (Admin, Owner, User) with secure JWT authentication",
+      "Secure code verification & honeypot decoy file protection on unauthorized access",
+      "Trap-based suspicious login detection with controlled monitoring environment",
+      "Comprehensive activity logging, security monitoring, and automated email alerts",
+      "Protected file download management and account appeal/recovery workflow",
+    ],
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "JavaScript",
+      "JWT",
+      "bcrypt",
+      "REST APIs",
+      "Fog Computing",
+    ],
+    role: "Full-Stack Development & Security Architecture",
+    liveUrl: "https://sentinel-security-software-1.onrender.com",
+    githubUrl: "https://github.com/Shenpagam/sentinel-security-software",
+  },
+  {
     id: "restrobill",
     title: "RestroBill — Restaurant Billing System",
     subtitle: "Digital Billing & QR Payment Platform",
