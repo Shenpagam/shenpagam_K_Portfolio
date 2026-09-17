@@ -5,7 +5,7 @@ import { PROJECTS_DATA, type ProjectItem } from "@/data/portfolio";
 import ProjectCard from "./ProjectCard";
 
 export const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<"All" | "Featured" | "Professional" | "Components" | "Other">("All");
+  const [filter, setFilter] = useState<"All" | "Featured" | "Professional" | "Components">("All");
 
   const filteredProjects =
     filter === "All"
@@ -37,7 +37,7 @@ export const Projects: React.FC = () => {
 
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-        {(["All", "Featured", "Professional", "Components", "Other"] as const).map((tab) => (
+        {(["All", "Featured", "Professional", "Components"] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setFilter(tab)}
@@ -53,9 +53,7 @@ export const Projects: React.FC = () => {
               ? "Featured Personal"
               : tab === "Professional"
               ? "Professional / Internal"
-              : tab === "Components"
-              ? "Reusable Components"
-              : "Other Projects"}
+              : "Reusable Components"}
           </button>
         ))}
       </div>

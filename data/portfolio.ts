@@ -82,8 +82,8 @@ export interface BlogTopic {
   title: string;
   category: string;
   summary: string;
-  status: "Coming Soon" | "Drafting";
-  readTime: string;
+  date: string;
+  linkedInUrl: string;
 }
 
 export const BRAND_DATA: BrandConfig = {
@@ -280,6 +280,120 @@ export const EXPERTISE_DATA: ExpertiseCategory[] = [
 ];
 
 export const PROJECTS_DATA: ProjectItem[] = [
+  // Featured Personal Projects
+  {
+    id: "sentinel",
+    title: "Sentinel – File Hacking Alert System Using Fog Computing",
+    subtitle: "Cybersecurity & Secure File Management Platform",
+    category: "Featured",
+    badge: "Featured Personal Project",
+    description:
+      "A secure MERN-stack web application designed to protect digital files from unauthorized access and suspicious activities using secure authentication, secure code verification, trap-based intrusion detection, honeypot protection, activity monitoring, email alerts, and fog-computing concepts.",
+    problem:
+      "Detecting unauthorized access, suspicious login activity, and credential misuse before sensitive digital files are compromised without administrative visibility.",
+    solution:
+      "Architected a multi-layered web application security system combining JWT authentication, role-based access control, trap-based login detection, and honeypot decoy files to isolate intruders and alert administrators.",
+    keyFeatures: [
+      "Role-based access control (Admin, Owner, User) with secure JWT authentication",
+      "Secure code verification & honeypot decoy file protection on unauthorized access",
+      "Trap-based suspicious login detection with controlled monitoring environment",
+      "Comprehensive activity logging, security monitoring, and automated email alerts",
+      "Protected file download management and account appeal/recovery workflow",
+    ],
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "JavaScript",
+      "JWT",
+      "bcrypt",
+      "REST APIs",
+      "Fog Computing",
+    ],
+    role: "Full-Stack Development & Security Architecture",
+    liveUrl: "https://sentinel-security-software-1.onrender.com",
+    githubUrl: "https://github.com/Shenpagam/sentinel-security-software",
+  },
+  {
+    id: "restrobill",
+    title: "RestroBill — Restaurant Billing System",
+    subtitle: "Digital Billing & QR Payment Platform",
+    category: "Featured",
+    badge: "Featured Personal Project",
+    description:
+      "A fast, modern restaurant billing web application with dynamic bill generation, itemized totals, and Google Pay QR code integration for instant direct payments.",
+    problem:
+      "Small food establishments often rely on slow, error-prone manual paper billing and struggle to provide smooth digital contactless payments for customers.",
+    solution:
+      "Engineered an efficient React web application that lets staff select items dynamically, compute taxes/totals automatically, and instantly render a Google Pay QR code for direct customer checkout.",
+    keyFeatures: [
+      "Dynamic bill creation with instant price calculation",
+      "Google Pay QR code integration for direct cashless payment",
+      "Local state & order persistence with browser storage",
+      "Mobile-friendly touch interface designed for restaurant counters",
+    ],
+    technologies: ["React", "Node.js", "JavaScript", "localStorage", "CSS3", "QR API"],
+    role: "Sole Creator — End-to-End Design & Development",
+    liveUrl: "https://restaurant-billing-system-restrobill.netlify.app",
+    githubUrl: "https://github.com/Shenpagam",
+  },
+  {
+    id: "task-flow",
+    title: "Task Flow — Task Management App",
+    subtitle: "Productivity & CRUD Operations Platform",
+    category: "Featured",
+    badge: "Featured Personal Project",
+    description:
+      "A clean, CRUD-based task manager applying core MERN concepts to build a real, usable productivity tool with task creation, category filtering, and status updates.",
+    problem:
+      "Users need a straightforward, clutter-free task management interface to organize daily tasks without unnecessary SaaS bloat.",
+    solution:
+      "Developed a responsive single-page web application featuring full CRUD capabilities, smooth UI state transitions, and persistent storage.",
+    keyFeatures: [
+      "Complete CRUD: Create, Read, Update, and Delete tasks",
+      "Real-time task completion toggle and progress visualizer",
+      "Priority and category tagging for clear task sorting",
+      "Responsive layout optimized for both desktop and mobile use",
+    ],
+    technologies: ["React", "Node.js", "JavaScript", "MERN Concepts", "Tailwind CSS"],
+    role: "Sole Creator — End-to-End Development",
+    liveUrl: "https://task-manager-taskflow.netlify.app",
+    githubUrl: "https://github.com/Shenpagam",
+  },
+  {
+    id: "guvi-clone",
+    title: "GUVI Clone",
+    subtitle: "Component Architecture Practice",
+    category: "Featured",
+    badge: "Front-End Practice",
+    description:
+      "A responsive front-end clone built to practice component-based architecture, grid layouts, and visual design replication.",
+    problem: "Mastering complex UI layout replication and responsive grid systems.",
+    solution: "Deconstructed page sections into modular reusable React components with Bootstrap.",
+    keyFeatures: ["Pixel-accurate course catalog layout", "Responsive navigation and cards", "Modular component tree"],
+    technologies: ["React", "Bootstrap", "CSS3", "Render"],
+    role: "Front-End Development",
+    liveUrl: "https://guviclone.onrender.com",
+    githubUrl: "https://github.com/Shenpagam",
+  },
+  {
+    id: "nasa-apod",
+    title: "NASA APOD — Astronomy Picture of the Day",
+    subtitle: "Real-Time API Integration",
+    category: "Featured",
+    badge: "API Exploration",
+    description:
+      "A web application that fetches and displays NASA's daily astronomy picture in real time using the official NASA REST API.",
+    problem: "Consuming external REST APIs and handling asynchronous data fetching gracefully.",
+    solution: "Integrated NASA REST API with date pickers, loading skeletons, and high-res media display.",
+    keyFeatures: ["Live daily image & explanation fetch", "Interactive date query picker", "Responsive full-screen viewer"],
+    technologies: ["React", "NASA REST API", "JavaScript", "Netlify"],
+    role: "Front-End Development & API Integration",
+    liveUrl: "https://nasa-apod-terraspace.netlify.app",
+    githubUrl: "https://github.com/Shenpagam",
+  },
+
   // Professional Projects
   {
     id: "medronix",
@@ -467,122 +581,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     role: "Component Development & Integration",
     liveUrl: "https://dynamic-calendar-analytics.netlify.app/",
   },
-
-  // Featured Personal Projects
-  {
-    id: "sentinel",
-    title: "Sentinel – File Hacking Alert System Using Fog Computing",
-    subtitle: "Cybersecurity & Secure File Management Platform",
-    category: "Featured",
-    badge: "Featured Personal Project",
-    description:
-      "A secure MERN-stack web application designed to protect digital files from unauthorized access and suspicious activities using secure authentication, secure code verification, trap-based intrusion detection, honeypot protection, activity monitoring, email alerts, and fog-computing concepts.",
-    problem:
-      "Detecting unauthorized access, suspicious login activity, and credential misuse before sensitive digital files are compromised without administrative visibility.",
-    solution:
-      "Architected a multi-layered web application security system combining JWT authentication, role-based access control, trap-based login detection, and honeypot decoy files to isolate intruders and alert administrators.",
-    keyFeatures: [
-      "Role-based access control (Admin, Owner, User) with secure JWT authentication",
-      "Secure code verification & honeypot decoy file protection on unauthorized access",
-      "Trap-based suspicious login detection with controlled monitoring environment",
-      "Comprehensive activity logging, security monitoring, and automated email alerts",
-      "Protected file download management and account appeal/recovery workflow",
-    ],
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React.js",
-      "Node.js",
-      "JavaScript",
-      "JWT",
-      "bcrypt",
-      "REST APIs",
-      "Fog Computing",
-    ],
-    role: "Full-Stack Development & Security Architecture",
-    liveUrl: "https://sentinel-security-software-1.onrender.com",
-    githubUrl: "https://github.com/Shenpagam/sentinel-security-software",
-  },
-  {
-    id: "restrobill",
-    title: "RestroBill — Restaurant Billing System",
-    subtitle: "Digital Billing & QR Payment Platform",
-    category: "Featured",
-    badge: "Featured Personal Project",
-    description:
-      "A fast, modern restaurant billing web application with dynamic bill generation, itemized totals, and Google Pay QR code integration for instant direct payments.",
-    problem:
-      "Small food establishments often rely on slow, error-prone manual paper billing and struggle to provide smooth digital contactless payments for customers.",
-    solution:
-      "Engineered an efficient React web application that lets staff select items dynamically, compute taxes/totals automatically, and instantly render a Google Pay QR code for direct customer checkout.",
-    keyFeatures: [
-      "Dynamic bill creation with instant price calculation",
-      "Google Pay QR code integration for direct cashless payment",
-      "Local state & order persistence with browser storage",
-      "Mobile-friendly touch interface designed for restaurant counters",
-    ],
-    technologies: ["React", "Node.js", "JavaScript", "localStorage", "CSS3", "QR API"],
-    role: "Sole Creator — End-to-End Design & Development",
-    liveUrl: "https://restaurant-billing-system-restrobill.netlify.app",
-    githubUrl: "https://github.com/Shenpagam",
-  },
-  {
-    id: "task-flow",
-    title: "Task Flow — Task Management App",
-    subtitle: "Productivity & CRUD Operations Platform",
-    category: "Featured",
-    badge: "Featured Personal Project",
-    description:
-      "A clean, CRUD-based task manager applying core MERN concepts to build a real, usable productivity tool with task creation, category filtering, and status updates.",
-    problem:
-      "Users need a straightforward, clutter-free task management interface to organize daily tasks without unnecessary SaaS bloat.",
-    solution:
-      "Developed a responsive single-page web application featuring full CRUD capabilities, smooth UI state transitions, and persistent storage.",
-    keyFeatures: [
-      "Complete CRUD: Create, Read, Update, and Delete tasks",
-      "Real-time task completion toggle and progress visualizer",
-      "Priority and category tagging for clear task sorting",
-      "Responsive layout optimized for both desktop and mobile use",
-    ],
-    technologies: ["React", "Node.js", "JavaScript", "MERN Concepts", "Tailwind CSS"],
-    role: "Sole Creator — End-to-End Development",
-    liveUrl: "https://task-manager-taskflow.netlify.app",
-    githubUrl: "https://github.com/Shenpagam",
-  },
-
-  // Other Projects
-  {
-    id: "guvi-clone",
-    title: "GUVI Clone",
-    subtitle: "Component Architecture Practice",
-    category: "Other",
-    badge: "Front-End Practice",
-    description:
-      "A responsive front-end clone built to practice component-based architecture, grid layouts, and visual design replication.",
-    problem: "Mastering complex UI layout replication and responsive grid systems.",
-    solution: "Deconstructed page sections into modular reusable React components with Bootstrap.",
-    keyFeatures: ["Pixel-accurate course catalog layout", "Responsive navigation and cards", "Modular component tree"],
-    technologies: ["React", "Bootstrap", "CSS3", "Render"],
-    role: "Front-End Development",
-    liveUrl: "https://guviclone.onrender.com",
-    githubUrl: "https://github.com/Shenpagam",
-  },
-  {
-    id: "nasa-apod",
-    title: "NASA APOD — Astronomy Picture of the Day",
-    subtitle: "Real-Time API Integration",
-    category: "Other",
-    badge: "API Exploration",
-    description:
-      "A web application that fetches and displays NASA's daily astronomy picture in real time using the official NASA REST API.",
-    problem: "Consuming external REST APIs and handling asynchronous data fetching gracefully.",
-    solution: "Integrated NASA REST API with date pickers, loading skeletons, and high-res media display.",
-    keyFeatures: ["Live daily image & explanation fetch", "Interactive date query picker", "Responsive full-screen viewer"],
-    technologies: ["React", "NASA REST API", "JavaScript", "Netlify"],
-    role: "Front-End Development & API Integration",
-    liveUrl: "https://nasa-apod-terraspace.netlify.app",
-    githubUrl: "https://github.com/Shenpagam",
-  },
 ];
 
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -630,14 +628,15 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
-    id: "livestream-intern",
-    type: "work",
-    title: "MERN Stack Developer Intern",
-    organization: "Live Stream Technologies",
-    duration: "3 Months",
+    id: "bcom-ca",
+    type: "education",
+    title: "Bachelor of Commerce in Computer Applications (B.Com CA)",
+    organization: "Kalasalingam Academy of Research and Education",
+    duration: "2021 – 2024",
+    grade: "CGPA: 9.16",
     description:
-      "Developed full-stack web application features using MongoDB, Express.js, React.js, and Node.js in a collaborative team environment. Built REST APIs, integrated responsive frontend components, and worked with live codebases.",
-    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs", "Full-Stack Development"],
+      "Undergraduate degree blending practical computer applications, software programming fundamentals, and business commerce principles with academic distinction.",
+    tags: ["Programming Fundamentals", "Database Applications", "Business Systems", "Graduated with Honors"],
   },
   {
     id: "mca",
@@ -651,17 +650,6 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     tags: ["Advanced Web Engineering", "Database Systems", "Software Architecture", "Algorithms"],
   },
   {
-    id: "bcom-ca",
-    type: "education",
-    title: "Bachelor of Commerce in Computer Applications (B.Com CA)",
-    organization: "Kalasalingam Academy of Research and Education",
-    duration: "2021 – 2024",
-    grade: "CGPA: 9.16",
-    description:
-      "Undergraduate degree blending practical computer applications, software programming fundamentals, and business commerce principles with academic distinction.",
-    tags: ["Programming Fundamentals", "Database Applications", "Business Systems", "Graduated with Honors"],
-  },
-  {
     id: "mern-cert",
     type: "certification",
     title: "MERN Stack Certification",
@@ -671,61 +659,120 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
       "Comprehensive 8-month hands-on training covering full-stack web engineering, React component architecture, Node.js backend services, Express routing, MongoDB database modeling, and JWT authentication.",
     tags: ["MERN Stack", "React", "Node.js", "Express.js", "MongoDB", "JWT Auth"],
   },
+  {
+    id: "livestream-intern",
+    type: "work",
+    title: "MERN Stack Developer Intern",
+    organization: "Live Stream Technologies",
+    duration: "3 Months",
+    description:
+      "Developed the Relative Book Landing Page during my MERN Stack Developer internship, focusing on frontend development, responsive UI implementation, reusable components, and a user-friendly web experience.",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs", "Full-Stack Development"],
+  },
+  {
+    id: "aaa-techno-park",
+    type: "work",
+    title: "Software Developer Intern",
+    organization: "AAA Techno Park, Sivakasi",
+    duration: "May 2026 – Present",
+    description:
+      "Contributing to real-world and live software projects across frontend and backend development, WordPress development, SEO, analytics, AI chatbots, and RAG-related solutions. Worked on WordPress marketing websites for Medronix and Vaidhya AI using Elementor and Elementor Pro, implemented SEO with Rank Math and Yoast SEO, and configured Contact Form 7 and WP Mail SMTP. Contributed to frontend analytics including the Indian Map-based analytics module and Vaidhya Health Camp analytics, helped improve AI chatbot accuracy and usability, and contributed to frontend and backend modules for the Employee Productivity Dashboard (EPD) supporting data-processing workflows.",
+    tags: [
+      "WordPress",
+      "Elementor",
+      "Elementor Pro",
+      "Rank Math SEO",
+      "Yoast SEO",
+      "Contact Form 7",
+      "WP Mail SMTP",
+      "React.js",
+      "Node.js",
+      "JavaScript",
+      "AI Chatbots",
+      "RAG",
+    ],
+  },
 ];
 
 export const BLOG_TOPICS: BlogTopic[] = [
   {
-    id: "mern-vs-nextjs",
-    title: "MERN Stack vs Next.js: When to Use Which",
+    id: "website-vs-web-app",
+    title: "Website vs Web Application",
     category: "Web Development",
     summary:
-      "A practical comparison of building standalone React + Express backends versus unified Next.js full-stack architectures based on project scale and SEO needs.",
-    status: "Coming Soon",
-    readTime: "5 min read",
+      "Understand the key differences between websites and web applications, including their purpose and functionality.",
+    date: "15 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-mernstack-javascript-activity-7501917888233181184-8gU1",
   },
   {
-    id: "getting-started-nextjs",
-    title: "Getting Started with Next.js as a MERN Developer",
-    category: "Next.js",
+    id: "frontend-vs-backend",
+    title: "Frontend vs Backend",
+    category: "Web Development",
     summary:
-      "How transitioning from standard client-side React + Express to Next.js App Router shifts component thinking, data fetching, and routing.",
-    status: "Coming Soon",
-    readTime: "6 min read",
+      "A clear breakdown of the core differences and roles of Frontend vs Backend in web development.",
+    date: "15 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-frontend-backend-activity-7502554962774794240-5zHr",
   },
   {
-    id: "basic-onpage-seo",
-    title: "Basic On-Page SEO Every Developer Should Know",
-    category: "SEO & Digital",
+    id: "what-is-an-api",
+    title: "What is an API?",
+    category: "Web Development",
     summary:
-      "Why semantic heading hierarchy, meta descriptions, descriptive alt text, and Open Graph tags make a tangible difference in website discoverability.",
-    status: "Coming Soon",
-    readTime: "4 min read",
+      "Exploring how Application Programming Interfaces (APIs) allow different software systems to communicate seamlessly.",
+    date: "15 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-apis-javascript-activity-7502919344725626880-IWpl",
   },
   {
-    id: "crud-app-architecture",
-    title: "How I Structured a CRUD App Using MERN Concepts",
-    category: "MERN Stack",
+    id: "how-to-build-web-app",
+    title: "How to Build a Web Application?",
+    category: "Web Development",
     summary:
-      "Practical lessons from building Task Flow — organizing route controllers, state management, and handling asynchronous errors cleanly.",
-    status: "Coming Soon",
-    readTime: "5 min read",
+      "An iterative engineering roadmap: Learn one layer → build it → connect it → test it → improve it.",
+    date: "14 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-fullstackdevelopment-webapplication-activity-7505638769438429184-IRD1",
   },
   {
-    id: "wordpress-vs-custom",
-    title: "WordPress vs Custom Development: Choosing the Right Approach",
-    category: "WordPress",
+    id: "how-to-build-website",
+    title: "How to Build a Website?",
+    category: "Web Development",
     summary:
-      "Evaluating client requirements, budget, maintenance, and content publishing workflows to choose between WordPress and bespoke custom code.",
-    status: "Coming Soon",
-    readTime: "5 min read",
+      "A structured guide to building a website: Idea → UI Design → Code → Responsive → Testing → Deployment.",
+    date: "13 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-websitedevelopment-javascript-activity-7504919653186453504-Nsul",
   },
   {
-    id: "content-structuring-seo",
-    title: "Content Structuring Tips for SEO-Friendly Websites",
-    category: "SEO & Digital",
+    id: "build-with-web-dev",
+    title: "What Can You Actually Build With Web Development?",
+    category: "Web Development",
     summary:
-      "How intentional content grouping, internal linking, and readable typography improve both user retention and search engine crawling.",
-    status: "Coming Soon",
-    readTime: "4 min read",
+      "Exploring the real-world digital solutions, websites, and web applications you can build with Web Development.",
+    date: "11 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-webdevelopmentprojects-javascript-activity-7504006906860957696-l10k",
+  },
+  {
+    id: "inside-the-backend",
+    title: "What happens inside the Backend?",
+    category: "Web Development",
+    summary:
+      "Understanding the internal data processing pipeline: Request → Route → Controller → Logic → DB → Response.",
+    date: "10 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_backenddevelopment-webdevelopment-nodejs-activity-7503643356174966784-gLdd",
+  },
+  {
+    id: "click-login-flow",
+    title: "What happens when you click \"Login\"?",
+    category: "Web Development",
+    summary:
+      "Tracing the complete step-by-step request flow and authentication journey when a user logs into a web application.",
+    date: "09 September 2026",
+    linkedInUrl:
+      "https://www.linkedin.com/posts/shenpagamk_webdevelopment-backenddevelopment-apis-activity-7503279154461675520-u61r",
   },
 ];

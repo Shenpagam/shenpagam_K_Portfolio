@@ -7,7 +7,9 @@ import { BLOG_TOPICS } from "@/data/portfolio";
 export const BlogPreview: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", "Web Development", "MERN Stack", "Next.js", "WordPress", "SEO & Digital"];
+  const categories = Array.from(
+    new Set(["All", ...BLOG_TOPICS.map((t) => t.category)])
+  );
 
   const filteredTopics =
     selectedCategory === "All"
@@ -18,22 +20,22 @@ export const BlogPreview: React.FC = () => {
     <section
       id="blog"
       className="relative py-20 sm:py-28 px-5 sm:px-8 max-w-6xl mx-auto z-20"
-      aria-label="Blog Notes and Technical Learnings"
+      aria-label="LinkedIn Posts and Technical Insights"
     >
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-xs font-semibold uppercase tracking-wider text-brand-blue mb-3">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-          Technical Notes
+          FROM MY LINKEDIN
         </div>
         <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-brand-navy tracking-tight mb-4">
           Learning, building &amp;{" "}
           <span className="font-serif italic font-semibold text-brand-blue">
-            documenting.
+            sharing.
           </span>
         </h2>
         <p className="text-sm sm:text-base text-brand-gray leading-relaxed font-normal">
-          This is where I document practical lessons from projects across MERN, Next.js, WordPress, and SEO. These upcoming notes capture real engineering tradeoffs and solutions.
+          I regularly share practical insights on web development, backend concepts, APIs, and modern software development through LinkedIn.
         </p>
       </div>
 
@@ -63,20 +65,27 @@ export const BlogPreview: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="p-6 rounded-3xl bg-white border border-brand-navy/[0.08] shadow-card flex flex-col justify-between hover:border-brand-blue/30 hover:shadow-soft transition-all duration-300"
+            className="group p-6 rounded-3xl bg-white border border-brand-navy/[0.08] shadow-card flex flex-col justify-between hover:border-brand-blue/30 hover:shadow-soft transition-all duration-300"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-brand-lightBg text-brand-blue border border-brand-blue/15">
                   {topic.category}
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-brand-gray px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200/80">
-                  {topic.status}
+                <span className="text-[11px] font-medium text-brand-gray/80">
+                  {topic.date}
                 </span>
               </div>
 
-              <h3 className="font-sans font-bold text-lg text-brand-navy mb-2 tracking-tight line-clamp-2">
-                {topic.title}
+              <h3 className="font-sans font-bold text-lg text-brand-navy mb-2 tracking-tight line-clamp-2 group-hover:text-brand-blue transition-colors">
+                <a
+                  href={topic.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline focus:outline-none focus:ring-2 focus:ring-brand-blue/30 rounded-sm"
+                >
+                  {topic.title}
+                </a>
               </h3>
 
               <p className="text-xs text-brand-gray leading-relaxed mb-4">
@@ -84,9 +93,18 @@ export const BlogPreview: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-center justify-between text-xs font-medium text-brand-gray pt-3 border-t border-brand-navy/[0.06]">
-              <span>{topic.readTime}</span>
-              <span className="text-brand-blue font-semibold">Article in Progress →</span>
+            <div className="pt-3 border-t border-brand-navy/[0.06] flex items-center justify-between">
+              <a
+                href={topic.linkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:underline focus:outline-none focus:ring-2 focus:ring-brand-blue/30 rounded-sm"
+              >
+                <span>View on LinkedIn</span>
+                <span className="text-sm transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </div>
           </motion.article>
         ))}
@@ -96,3 +114,4 @@ export const BlogPreview: React.FC = () => {
 };
 
 export default BlogPreview;
+

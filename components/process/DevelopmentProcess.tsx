@@ -141,7 +141,6 @@ export const DevelopmentProcess: React.FC = () => {
             {PROCESS_STEPS.map((item, idx) => {
               const isCompleted = idx < activeStepIndex;
               const isActive = idx === activeStepIndex;
-              const isUpcoming = idx > activeStepIndex;
 
               return (
                 <button
@@ -200,27 +199,6 @@ export const DevelopmentProcess: React.FC = () => {
                     {item.tagline.split("&")[0].trim()}
                   </span>
 
-                  {/* Status Indicator Pill */}
-                  <div className="mt-2">
-                    {isCompleted && (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
-                        <span className="w-1 h-1 rounded-full bg-emerald-500" />
-                        Completed
-                      </span>
-                    )}
-                    {isActive && (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-brand-blue bg-blue-50 px-2 py-0.5 rounded-full border border-brand-blue/25">
-                        <span className="w-1 h-1 rounded-full bg-brand-blue animate-pulse" />
-                        In Progress
-                      </span>
-                    )}
-                    {isUpcoming && (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-medium text-slate-400 bg-slate-100/80 px-2 py-0.5 rounded-full">
-                        <span className="w-1 h-1 rounded-full bg-slate-300" />
-                        Pending
-                      </span>
-                    )}
-                  </div>
                 </button>
               );
             })}
